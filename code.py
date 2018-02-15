@@ -1,3 +1,5 @@
+from pymongo import MongoClient
+
 c = MongoClient('lisa.stuy.edu', 27017)
 DB = c.test
 restaraunt = mfDB['restaurants']
@@ -16,4 +18,5 @@ def ret_zipGrade(zip, grade):
 
 def ret_zipMaxgrade(zip, grade):
     zips = ret_zip(zip)
-    zip_grades = zips.find({"zip": zip}, {"grade": $lt})
+    zip_grades = zips.find({"zip": zip}, {"grade" $lt grade})
+    return zip_grades
