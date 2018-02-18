@@ -18,5 +18,5 @@ def ret_zipGrade(zip, grade):
 
 def ret_zipMaxgrade(zip, grade):
     zips = ret_zip(zip)
-    zip_grades = zips.find({"zip": zip}, {"grade" $lt grade})
+    zip_grades = zips.find({"zip": zip}, {"grade": $lt grade})
     return zip_grades
