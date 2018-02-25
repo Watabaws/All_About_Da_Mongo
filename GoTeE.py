@@ -8,6 +8,7 @@ laptopBros = conn.movies
 R = urllib2.urlopen("https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json")
 page = R.read()
 dat = json.loads(page)
+print len(dat)
 for i in dat:
     listing = {
         'title' : i["title"],
@@ -18,6 +19,7 @@ for i in dat:
         'genre' : i["genre"]
     }
     laptopBros.movies.insert_one(listing)
+print "Am Donezo"
 #print dat[0]["title"]
 #print json.dumps(dat, indent=4)
 #for i in dat:
