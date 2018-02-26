@@ -23,27 +23,16 @@ R.close()
 dat = json.loads(page)
 print len(dat)
 laptopBros.movies.insert(dat)
-'''for i in dat:
-    listing = {
-        'title' : i["title"],
-        'notes' : i["notes"],
-        'director' : i["director"],
-        'cast' : i["cast"],
-        'year' : i["year"],
-        'genre' : i["genre"]
-    }
-    #print listing
-    laptopBros.movies.insert_one(listing)'''
 
 
 def get_title(title):
-    return laptopBros.find({'title':title})
+    return laptopBros.movies.find({'title':title})
 
 def get_director(dir):
-    return laptopBros.find({'director': dir})
+    return laptopBros.movies.find({'director': dir})
 
 def get_year(year):
-    return laptopBros.find({'year': year})
+    return laptopBros.movies.find({'year': year})
 
 def get_genre(gen):
     return laptopBros.find({'genre': gen})
