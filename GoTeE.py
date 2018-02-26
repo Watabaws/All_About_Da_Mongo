@@ -1,4 +1,15 @@
-import urllib2, json
+'''
+Adam Abbas and Holden Higgins
+SoftDev2 pd7
+K 05 -- Import/Export Bank
+2017-02-25
+
+Our dataset is the wikipedia movie data, containing data on over 18 thousand movies, including the year they were made, their director and of course the title.
+To download this data, save it from this link: https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json
+
+We use the urllib2 library to open and read the json. After loading it in, we then loop through it, converting the entries into Mongo usable listings. We then add it to the database!
+
+'''import urllib2, json
 from pymongo import MongoClient
 
 conn = MongoClient('lisa.stuy.edu', 27017)
@@ -8,7 +19,7 @@ laptopBros = conn.movies
 R = urllib2.urlopen("https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json")
 page = R.read()
 dat = json.loads(page)
-print len(dat)
+#print len(dat)
 for i in dat:
     listing = {
         'title' : i["title"],
