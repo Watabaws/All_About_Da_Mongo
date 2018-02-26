@@ -19,8 +19,16 @@ for i in dat:
         'genre' : i["genre"]
     }
     laptopBros.movies.insert_one(listing)
-print "Am Donezo"
-#print dat[0]["title"]
-#print json.dumps(dat, indent=4)
-#for i in dat:
-#    print i
+
+
+def get_title(title):
+    return laptopBros.find({'title':title})
+
+def get_director(dir):
+    return laptopBros.find({'director': dir})
+
+def get_year(year):
+    return laptopBros.find({'year': year})
+
+def get_genre(gen):
+    return laptopBros.find({'genre': gen})
