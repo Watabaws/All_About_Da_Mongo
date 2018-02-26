@@ -22,7 +22,8 @@ page = R.read()
 R.close()
 dat = json.loads(page)
 print len(dat)
-for i in dat:
+laptopBros.movies.insert(dat)
+'''for i in dat:
     listing = {
         'title' : i["title"],
         'notes' : i["notes"],
@@ -32,7 +33,7 @@ for i in dat:
         'genre' : i["genre"]
     }
     #print listing
-    laptopBros.movies.insert_one(listing)
+    laptopBros.movies.insert_one(listing)'''
 
 
 def get_title(title):
