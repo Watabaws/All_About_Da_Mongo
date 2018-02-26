@@ -9,17 +9,19 @@ To download this data, save it from this link: https://raw.githubusercontent.com
 
 We use the urllib2 library to open and read the json. After loading it in, we then loop through it, converting the entries into Mongo usable listings. We then add it to the database!
 
-'''import urllib2, json
+'''
+import urllib2, json
 from pymongo import MongoClient
 
 conn = MongoClient('lisa.stuy.edu', 27017)
 laptopBros = conn.movies
 
 #American Move JSON
-R = urllib2.urlopen("https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json")
+R = open("movies.json", "r")
 page = R.read()
+R.close()
 dat = json.loads(page)
-#print len(dat)
+print len(dat)
 for i in dat:
     listing = {
         'title' : i["title"],
@@ -29,6 +31,7 @@ for i in dat:
         'year' : i["year"],
         'genre' : i["genre"]
     }
+    #print listing
     laptopBros.movies.insert_one(listing)
 
 
